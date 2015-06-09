@@ -17,7 +17,7 @@ options = {
       https: true,
       ca: ca
     };
-var dogecoin = require('../lib/dogecoin')(options);
+var groestlcoin = require('../lib/groestlcoin')(options);
 
 exports.get = function (test) {
 	var options_keys = Object.keys(options);
@@ -33,7 +33,7 @@ exports.get = function (test) {
 
 	var idx = 0;
 	for(var propt in options){
-		test.deepEqual(dogecoin.get(''+options_keys[idx]), options[''+propt]);
+		test.deepEqual(groestlcoin.get(''+options_keys[idx]), options[''+propt]);
 		idx ++;
 	}
 	
@@ -43,7 +43,7 @@ exports.set = function (test) {
 
 	var new_options = {
       host: '133.7.7.7',
-      port: 22556,
+      port: 17777,
       user: 'new_1337_^*)()',
       pass: '*&@#cra$%zy@',
       passphrasecallback: function () { return 1+1;},
@@ -62,8 +62,8 @@ exports.set = function (test) {
 
 	var idx = 0;
 	for(var propt in new_options){
-		dogecoin.set(''+options_keys[idx], new_options[ ''+options_keys[idx] ]);
-		test.deepEqual(dogecoin.get(''+options_keys[idx]), new_options[''+propt]);
+		groestlcoin.set(''+options_keys[idx], new_options[ ''+options_keys[idx] ]);
+		test.deepEqual(groestlcoin.get(''+options_keys[idx]), new_options[''+propt]);
 		idx ++;
 	}
 	test.done();
@@ -76,8 +76,8 @@ exports.set = function (test) {
 
 /*
 /* BEFORE RUNNING read below:
- * Either run dogecoind directly or run dogecoin-qt with the -server
- * command line option. Make sure you have a ~/.dogecoin/dogecoin.conf
+ * Either run groestlcoind directly or run groestlcoin-qt with the -server
+ * command line option. Make sure you have a ~/.groestlcoin/groestlcoin.conf
  * with rpcuser and rpcpassword config values filled out. Note that
  * newer versions of dogecoin (1.5 and above) don't allow identical
  * your rpc username and password to be identical.
@@ -85,16 +85,15 @@ exports.set = function (test) {
  */
 /*
 exports.commands_noAuth = {		
-	//NOTE: Before running the getBalance test add some testdoge to your wallet here: http://testdoge.lionservers.de/
-	// 			or add "gen=1" to the bottom of your dogecoin.conf file
+	//NOTE: Before running the getBalance add "gen=1" to the bottom of your groestlcoin.conf file
 	getBalance: function(test){
 		var curr_balance;
-		dogecoin.getBalance(function(err, balance) {
+		groestlcoin.getBalance(function(err, balance) {
 			test.ifError(err);
 		  if (err) {
 		    console.error('Failed to fetch balance', err.message);
 		  }else {
-		  	console.log('DOGE balance is', balance);
+		  	console.log('GRS balance is', balance);
 			}
 		  test.done();
 		});
@@ -105,19 +104,19 @@ exports.commands_noAuth = {
 
 	getGenerate: function(test){
 		test.expect(2);
-		dogecoin.setGenerate(true,1);	
-		test.equal(dogecoin.getGenerate(), true);
+		groestlcoin.setGenerate(true,1);	
+		test.equal(groestlcoin.getGenerate(), true);
 
-		dogecoin.setGenerate(false,1);	
-		test.equal(dogecoin.getGenerate(), false);
+		groestlcoin.setGenerate(false,1);	
+		test.equal(groestlcoin.getGenerate(), false);
 		test.done();
 	},
 	getreceived_: function(test){
 		var amount= 0.0001;
 		//dogecoin.setAccount()
-		sendfrom("testnet_user", dogecoin.getaccountaddress('testnet_user'),amount, function(err,addr){
+		sendfrom("testnet_user", groestlcoin.getaccountaddress('testnet_user'),amount, function(err,addr){
 			test.equal(getreceivedbyaccount('testnet_user', amount);
-			test.equal( getreceivedbyaddress( dogecoin.getaccountaddress('testnet_user') ), amount);
+			test.equal( getreceivedbyaddress( groestlcoin.getaccountaddress('testnet_user') ), amount);
 			test.done();
 
 		});
@@ -133,7 +132,7 @@ exports.commands_noAuth = {
 exports.commands_Auth = {		
 	
 	setUp: function () {
-		dogecoin.auth('testnet_user', 'testnet_pass');
+		groestlcoin.auth('testnet_user', 'testnet_pass');
 	}
 
 	
