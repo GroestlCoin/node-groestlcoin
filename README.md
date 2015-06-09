@@ -1,6 +1,6 @@
 # A Node.js GroestlCoin Client!
 
-node-Groestlcoin is a Groestlcoin client for Node.js. It is a fork of the excellent Kapitalize Bitcoin Client (now removed from GitHub) intended for use with Groestlcoin. The purpose of this repository is:
+node-groestlcoin is a Groestlcoin client for Node.js. It is a fork of the excellent Kapitalize Bitcoin Client (now removed from GitHub) intended for use with Groestlcoin. The purpose of this repository is:
 
 * Provide a one-stop resource for the Node.js developer to get started with Groestlcoin integration.
 * Prevent would-be Groestlcoin web developers worrying whether a Bitcoin client will work out of the box.
@@ -17,7 +17,7 @@ Then, install the node-groestlcoin NPM package.
 
 ## Examples
 
-Some code examples follow below, but for more complete examples, see [these snippets](https://github.com/brotchie/dogecoin-code-snippets), or this [wallet app](https://github.com/countable/dogelet) which was created to to test this module.
+Some code examples follow below, but for more complete examples, see [the dogecoin snippets](https://github.com/brotchie/dogecoin-code-snippets), or this [dogecoin wallet app](https://github.com/countable/dogelet)
 
 ```js
 var groestlcoin = require('node-groestlcoin')()
