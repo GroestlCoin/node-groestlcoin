@@ -45,7 +45,7 @@ groestlcoin
 
 ## Methods
 
-The [Litecoin API](https://litecoin.info/Litecoin_API) is supported as direct methods. Use either camelcase or lowercase.
+The [Groestlcoin API](https://chainz.cryptoid.info/api.dws) is supported as direct methods. Use either camelcase or lowercase.
 
 ```js
 groestlcoin.getNewAddress(function(err, address) {
