@@ -103,7 +103,7 @@ All [Groestlcoin API](https://chainz.cryptoid.info/api.dws) commands are support
 <tr>
 <td> addmultisigaddress </td>
 <td> [nrequired] ["key","key"] [account] </td>
-<td> <b>Currently only available on testnet</b> Add a nrequired-to-sign multisignature address to the wallet. Each key is a dogecoin address or hex-encoded public key. If [account] is specified, assign address to [account]. </td>
+<td> <b>Currently only available on testnet</b> Add a nrequired-to-sign multisignature address to the wallet. Each key is a groestlcoin address or hex-encoded public key. If [account] is specified, assign address to [account]. </td>
 <td> N
 </td></tr>
 <tr>
@@ -126,14 +126,14 @@ All [Groestlcoin API](https://chainz.cryptoid.info/api.dws) commands are support
 </td></tr>
 <tr>
 <td> getaccount </td>
-<td> [dogecoinaddress] </td>
+<td> [groestlcoinaddress] </td>
 <td> Returns the account associated with the given address. </td>
 <td> N
 </td></tr>
 <tr>
 <td> getaccountaddress </td>
 <td> [account] </td>
-<td> Returns the current dogecoin address for receiving payments to this account. </td>
+<td> Returns the current groestlcoin address for receiving payments to this account. </td>
 <td> N
 </td></tr>
 <tr>
@@ -187,7 +187,7 @@ All [Groestlcoin API](https://chainz.cryptoid.info/api.dws) commands are support
 <tr>
 <td> getgenerate </td>
 <td> </td>
-<td> Returns true or false whether dogecoind is currently generating hashes </td>
+<td> Returns true or false whether groestlcoind is currently generating hashes </td>
 <td> N
 </td></tr>
 <tr>
@@ -239,7 +239,7 @@ All [Groestlcoin API](https://chainz.cryptoid.info/api.dws) commands are support
 <tr>
 <td> getnewaddress </td>
 <td> [account] </td>
-<td> Returns a new dogecoin address for receiving payments.  If [account] is specified (recommended), it is added to the address book so payments received with the address will be credited to [account]. </td>
+<td> Returns a new groestlcoin address for receiving payments.  If [account] is specified (recommended), it is added to the address book so payments received with the address will be credited to [account]. </td>
 <td> N
 </td></tr>
 <tr>
@@ -330,7 +330,7 @@ All [Groestlcoin API](https://chainz.cryptoid.info/api.dws) commands are support
 </li><li> "amount": total amount received by the address
 </li><li> "confirmations": number of confirmations of the most recent transaction included
 </li></ul>
-<p>To get a list of accounts on the system, execute dogecoind listreceivedbyaddress 0 true
+<p>To get a list of accounts on the system, execute groestlcoind listreceivedbyaddress 0 true
 </p>
 </td>
 <td> N
@@ -356,7 +356,7 @@ All [Groestlcoin API](https://chainz.cryptoid.info/api.dws) commands are support
 </td></tr>
 <tr>
 <td> sendfrom </td>
-<td> [fromaccount] [todogecoinaddress] [amount] [minconf=1] [comment] [comment-to] </td>
+<td> [fromaccount] [togroestlcoinaddress] [amount] [minconf=1] [comment] [comment-to] </td>
 <td> <amount< is a real and is rounded to 8 decimal places. Will send the given amount to the given address, ensuring the account has a valid balance using [minconf] confirmations. Returns the transaction ID if successful (not in JSON object). </td>
 <td> Y
 </td></tr>
@@ -407,7 +407,7 @@ Generation is limited to [genproclimit] processors, -1 is unlimited. </td>
 <tr>
 <td> validateaddress </td>
 <td> [groestlcoinaddress] </td>
-<td> Return information about [dogecoinaddress]. </td>
+<td> Return information about [groestlcoinaddress]. </td>
 <td> N
 </td></tr>
 <tr>
@@ -513,14 +513,14 @@ By default `groestlcoind` exposes its JSON-RPC interface via HTTP; that is, all 
     rpcsslcertificatechainfile=/etc/ssl/certs/groestlcoind.crt
     rpcsslprivatekeyfile=/etc/ssl/private/groestlcoind.pem
 
-In order to securely access an SSL encrypted JSON-RPC interface you need a copy of the self-signed certificate from the server: in this case `dogecoind.crt`. Pass your self-signed certificate in the `ca` option and set `https: true` and node-groestlcoin is secured!
+In order to securely access an SSL encrypted JSON-RPC interface you need a copy of the self-signed certificate from the server: in this case `groestlcoind.crt`. Pass your self-signed certificate in the `ca` option and set `https: true` and node-groestlcoin is secured!
     
 ```js
 var fs = require('fs')
 
 var ca = fs.readFileSync('groestlcoind.crt')
 
-var dogecoin = require('node-groestlcoin')({
+var groestlcoin = require('node-groestlcoin')({
   user: 'rpcusername',
   pass: 'rpcpassword',
   https: true,
